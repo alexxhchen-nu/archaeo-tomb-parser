@@ -135,9 +135,10 @@ export class TombParser {
 			发掘位置: '', 层位: '', 备注: '', 随葬器物: [],
 		};
 		const entry: Tomb = { ...defaults, ...tomb };
-		entry.随葬器物 = (entry.随葬器物 || []).map(a => ({
-			器物编号: '', 器物名称: '', 材质: '', 器型: '', 数量: 1, 特征描述: '', ...a,
-		}));
+		entry.随葬器物 = (entry.随葬器物 || []).map(a => {
+			const defaults: Artifact = { 器物编号: '', 器物名称: '', 材质: '', 器型: '', 数量: 1, 特征描述: '' };
+			return { ...defaults, ...a };
+		});
 		this.tombs.push(entry);
 	}
 

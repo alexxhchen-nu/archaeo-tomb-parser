@@ -20,6 +20,7 @@ const DEFAULT_SETTINGS: ArchaeoTombsSettings = {
 
 export default class ArchaeoTombsPlugin extends Plugin {
 	settings: ArchaeoTombsSettings;
+	statusBarEl: HTMLElement | null = null;
 
 	async onload() {
 		await this.loadSettings();
@@ -56,7 +57,9 @@ export default class ArchaeoTombsPlugin extends Plugin {
 		this.addSettingTab(new ArchaeoTombsSettingTab(this.app, this));
 
 		// Status bar
-		this.addStatusBarItem().setText('');
+		const statusBarEl = this.addStatusBarItem();
+		statusBarEl.setText('');
+		this.statusBarEl = statusBarEl;
 	}
 
 	onunload() {}
@@ -142,9 +145,8 @@ export default class ArchaeoTombsPlugin extends Plugin {
 			new Notice(`Parsed ${count} tombs → ${basePath}/`);
 
 			// Update status bar
-			const statusBarEl = this.statusBarEl;
-			if (statusBarEl) {
-				statusBarEl.setText(` tombs: ${count}`);
+			if (this.statusBarEl) {
+				this.statusBarEl.setText(` tombs: ${count}`);
 			}
 		} catch (err) {
 			console.error('Tomb parser error:', err);
