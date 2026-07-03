@@ -1,0 +1,11 @@
+{
+	"id": "archaeo-tombs",
+	"name": "Archaeological Tomb Parser",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Extract structured tomb (墓葬) data from Chinese archaeological reports. Parses .md and .txt files to JSON, CSV, and Markdown.",
+	"author": "Xiaohan Chen",
+	"authorUrl": "https://github.com/xiaohanchen",
+	"fundingUrl": "",
+	"isDesktopOnly": false
+}

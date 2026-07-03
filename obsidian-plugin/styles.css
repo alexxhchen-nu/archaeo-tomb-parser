@@ -1,0 +1,25 @@
+/* Tomb data table styling */
+
+.markdown-preview-view table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0.5em 0;
+}
+
+.markdown-preview-view table th {
+	background-color: var(--background-secondary);
+	font-weight: 600;
+	text-align: left;
+	padding: 6px 10px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.markdown-preview-view table td {
+	padding: 4px 10px;
+	border: 1px solid var(--background-modifier-border);
+	vertical-align: top;
+}
+
+.markdown-preview-view table tr:nth-child(even) {
+	background-color: var(--background-secondary-alt);
+}
